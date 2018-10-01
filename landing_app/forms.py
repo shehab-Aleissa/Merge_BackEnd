@@ -6,3 +6,4 @@ class UserEmailForm(forms.ModelForm):
     class Meta:
         model = GetingUsersEmails
         fields = '__all__'
+

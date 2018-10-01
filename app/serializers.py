@@ -37,6 +37,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
+    
+    
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -48,7 +50,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def get_items(self, obj):
         items = obj.product_set.all()
-        return ProductSerializer(items, many=True).data
+        return ProductSerializer(items, many=True, context=self.context).data
 
 
 class ProductItemSerializer(serializers.ModelSerializer):
